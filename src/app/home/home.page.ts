@@ -19,7 +19,7 @@ export class HomePage {
     private fb: FormBuilder,
     private alertController: AlertController
   ) {
-    // Recibir el usuario desde el login
+    // Recibir el usuario desde el login (no se por qué aparece tachado)
     const navigation = this.router.getCurrentNavigation();
     // En caso de bypass, que se acceda como Invitado (Ficticio)
     this.usuarioEmail = navigation?.extras.state?.['user'] || 'Invitado';
