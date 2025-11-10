@@ -114,10 +114,5 @@ export class LoginPage {
   }
   */
 
-  /* No Todavía
-
-  ngOnInit() {
-  }
-  */
 
 }
