@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'recordatorios',
     loadChildren: () => import('./pages/recordatorios/recordatorios.module').then( m => m.RecordatoriosPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
 ];
 
 @NgModule({
