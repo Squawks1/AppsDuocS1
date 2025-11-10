@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -105,6 +106,13 @@ export class LoginPage {
     this.router.navigate(['/home'], { state: { user: this.usuario } });
 
   }
+
+  /*
+  registro()
+  {
+    this.navCtrl.navigateForward(['/registro']);
+  }
+  */
 
   /* No Todavía
 
