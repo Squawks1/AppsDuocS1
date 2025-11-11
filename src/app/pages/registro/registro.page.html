@@ -1,13 +1,74 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>registro</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <div class="logo-container">
+    <img src="../../assets/img/logo.png" alt="Logo" class="logo">
+  </div>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Crear Cuenta</ion-card-title>
+    </ion-card-header>
+
+    <!-- Formulario de registro -->
+    <ion-card-content>
+      <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+
+        <ion-item>
+          <ion-label position="floating">Nombre completo</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="usuario"></ion-input>
+        </ion-item>
+
+        <ion-note color="danger" *ngIf="registroForm.get('usuario')?.invalid && registroForm.get('usuario')?.touched">
+          El usuario debe tener entre 3 y 8 caracteres alfanuméricos.
+        </ion-note>
+
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-note color="danger" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+          Ingrese un correo electrónico válido.
+        </ion-note>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirmar contraseña</ion-label>
+          <ion-input formControlName="confirmarPassword" type="password"></ion-input>
+        </ion-item>
+
+        <ion-note color="danger" *ngIf="registroForm.errors?.['noCoinciden'] && registroForm.get('confirmarPassword')?.touched">
+          Las contraseñas no coinciden.
+        </ion-note>
+
+        <ion-button expand="block" type="submit" [disabled]="registroForm.invalid">
+          Crear cuenta
+        </ion-button>
+
+        <!-- En caso de tener una cuenta, que envíe al login-->
+        <ion-button expand="block" fill="clear" color="medium" routerLink="/login">
+          Ya tengo una cuenta
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>
