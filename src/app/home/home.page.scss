@@ -1,89 +1,65 @@
+ion-content {
+    --background: none;
+    background-image: url('../../assets/img/fondo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+ion-toolbar {
+  --background: #14a3c7;
+  --color: #fff;
+}
+
 .container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .titulo {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.usuario {
-  font-size: 1rem;
-  margin-bottom: 20px;
+  color: #14a3c7;
 }
 
 .subtitulo {
   font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  text-decoration: underline;
+  color: #333;
+  margin-bottom: 25px;
 }
 
-/* Formulario */
-.info-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.form-label {
-  display: inline-block;
-  width: 130px;
-  text-align: left;
-  font-weight: 500;
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-ion-input,
-ion-select,
-input[matInput] {
-  flex: 1;
-  text-align: left;
-  --padding-start: 8px;
-  min-width: 200px;
-}
-
-/* Botones */
-.button-row {
-  display: flex;
-  justify-content: space-between;
-  width: 85%;
-  margin-top: 1rem;
+.menu-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 15px;
 }
 
 ion-button {
-  flex: 1;
-  margin: 0 5px;
+  --background: #14a3c7;
+  --border-radius: 15px;
+  --color: white;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: gray;
-  margin-top: 30px;
+ion-button:hover {
+  transform: scale(1.05);
 }
 
-/* Animación izquierda a derecha */
-@keyframes slideRight {
-  0% {
-    transform: translateX(0);
+/* Animación Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  100% {
-    transform: translateX(20px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.animate-slide {
-  animation: slideRight 1s ease;
+.animate-fade {
+  animation: fadeIn 1s ease forwards;
 }
