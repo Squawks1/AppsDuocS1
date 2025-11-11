@@ -1,13 +1,55 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>recordatorios</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Recordatorios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recordatorios</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!-- Formulario de recordatorio -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo Recordatorio</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Medicamento</ion-label>
+        <ion-input [(ngModel)]="nuevoMedicamento"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Hora</ion-label>
+        <ion-input [(ngModel)]="nuevaHora" type="time"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nota (opcional)</ion-label>
+        <ion-input [(ngModel)]="nuevaNota"></ion-input>
+      </ion-item>
+
+      <!-- Boton -->
+      <ion-button expand="block" color="primary" (click)="agregarRecordatorio()">
+        Agregar Recordatorio
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista que guarda y muestra los recordatorios registrados -->
+  <ion-list>
+    <ion-item *ngFor="let rec of recordatorios; let i = index">
+
+      <ion-label>
+        <h2>{{ rec.medicamento }}</h2>
+        <p>Hora: {{ rec.hora }}</p>
+        <p *ngIf="rec.nota">Nota: {{ rec.nota }}</p>
+      </ion-label>
+
+      <ion-button fill="clear" color="danger" (click)="eliminarRecordatorio(i)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+  </ion-list>
+
 </ion-content>
