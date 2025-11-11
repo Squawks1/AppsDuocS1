@@ -1,13 +1,64 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>medicamentos</ion-title>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Medicamentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">medicamentos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="header">
+    <h2>Lista de Medicamentos</h2>
+    <ion-button color="primary" (click)="agregarMedicamento()">
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+      Agregar
+    </ion-button>
+  </div>
+
+  <!-- Condicional y For para evaluar que no esté en blanco 
+  y que recorra una lista de medicamentos guardados -->
+  <ion-list *ngIf="medicamentos.length > 0; else sinDatos">
+    <ion-item-sliding *ngFor="let med of medicamentos; let i = index">
+
+      <!-- Formulario -->
+      <ion-item>
+        <ion-label>
+          <h2>{{ med.nombre }}</h2>
+          <p>Dosis: {{ med.dosis }}</p>
+          <p>Horario: {{ med.horario }}</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Opción de editar o eliminar un medicamento registrado -->
+      <ion-item-options side="end">
+
+        <ion-item-option color="success" (click)="editarMedicamento(i)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="danger" (click)="eliminarMedicamento(i)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Si no existen medicamentos registrados, que muestre un emoji con un texto -->
+  <!-- Actualmente no deja registrar datos, posible error en .ts -->
+  <ng-template #sinDatos>
+    <div class="vacio">
+      <ion-icon name="medkit-outline" class="icono"></ion-icon>
+      <p>No hay medicamentos registrados.</p>
+    </div>
+  </ng-template>
+
 </ion-content>
+
+<!-- Se podría implementar una función de almacenamiento para guardar lo registrado
+    a pesar de que se cierre la aplicación -->
