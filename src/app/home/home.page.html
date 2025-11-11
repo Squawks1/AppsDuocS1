@@ -1,66 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar color="primary">
-    <ion-title>SkeletonAPP</ion-title>
+    <ion-title>Bienvenido a MediReminder</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
 
-  <div class="container">
+  <h2>Hola, {{ usuarioEmail }} 👋</h2>
+  <p>Gestiona tus medicamentos y recordatorios fácilmente.</p>
 
-    <!-- Encabezados -->
-    <h1 class="titulo">¡Bienvenido!</h1>
-    <p class="usuario">Usuario: <strong>{{ usuarioEmail }}</strong></p>
+  <!-- Tarjeta para agregar o registrar los medicamentos -->
+  <ion-card>
+    <img src="../../assets/img/medicamentos.png" alt="Medicamentos" />
+    
+    <ion-card-header>
+      <ion-card-title>Mis Medicamentos</ion-card-title>
+    </ion-card-header>
 
-    <h2 class="subtitulo">Información Adicional</h2>
+    <ion-card-content>
+      Lleva un control de todos tus medicamentos.
+    </ion-card-content>
 
-    <form [formGroup]="infoForm" class="info-form">
+    <ion-button expand="block" color="primary" routerLink="/medicamentos">
+      Ir a Mis Medicamentos
+    </ion-button>
 
-      <!-- Formularios -->
-      <div class="form-row">
-        <label class="form-label">Nombre:</label>
-        <ion-input id="nombreInput" formControlName="nombre" placeholder="Ingrese Nombre"></ion-input>
-      </div>
+  </ion-card>
 
-      <div class="form-row">
-        <label class="form-label">Apellido:</label>
-        <ion-input id="apellidoInput" formControlName="apellido" placeholder="Ingrese Apellido"></ion-input>
-      </div>
+  <!-- Tarjeta para registrar los recordatorios de medicamentos -->
+  <ion-card>
+    <img src="../../assets/img/recordatorios.png" alt="Recordatorios" />
 
-      <div class="form-row">
-        <label class="form-label">Nivel Educación:</label>
-        <ion-select formControlName="nivelEducacion" placeholder="Seleccione Nivel">
-          <ion-select-option value="Basica">Básica</ion-select-option>
-          <ion-select-option value="Media">Media</ion-select-option>
-          <ion-select-option value="Superior">Superior</ion-select-option>
-          <ion-select-option value="Postgrado">Postgrado</ion-select-option>
-        </ion-select>
-      </div>
+    <ion-card-header>
+      <ion-card-title>Recordatorios</ion-card-title>
+    </ion-card-header>
 
-      <div class="form-row">
-        <label class="form-label">Fecha Nacimiento:</label>
-        <input
-          matInput
-          [matDatepicker]="picker"
-          formControlName="fechaNacimiento"
-          placeholder="Seleccione Fecha"
-        />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </div>
+    <ion-card-content>
+      Configura alarmas para no olvidar tus dosis.
+    </ion-card-content>
 
-      <!-- Botones -->
-      <div class="button-row">
-        <ion-button color="medium" expand="block" (click)="limpiarCampos()">Limpiar</ion-button>
-        <ion-button color="primary" expand="block" (click)="mostrarDatos()">Mostrar</ion-button>
-      </div>
-
-    </form>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p>App desarrollada por Tomás Toledo Miranda</p>
-  </div>
+    <ion-button expand="block" color="secondary" routerLink="/recordatorios">
+      Ver Recordatorios
+    </ion-button>
+    
+  </ion-card>
 
 </ion-content>
+
