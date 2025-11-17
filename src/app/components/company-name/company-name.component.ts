@@ -9,8 +9,6 @@ export class CompanyNameComponent {
 
   constructor() { }
 
-  /*
-    @Input{} companyName: string = "MediReminder";
-  */
-
+    @Input() companyName: string = "MediReminder";
+  
 }
