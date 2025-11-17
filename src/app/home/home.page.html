@@ -1,6 +1,9 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Bienvenido a MediReminder</ion-title>
+  <ion-toolbar>
+    <app-company-name [companyName]="MediReminder"></app-company-name>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
