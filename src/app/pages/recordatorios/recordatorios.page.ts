@@ -9,6 +9,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class RecordatoriosPage {
 
+  MediReminder: string = 'MediReminder';
   recordatorios: { medicamento: string; hora: string; nota?: string }[] = [];
   nuevoMedicamento = '';
   nuevaHora = '';

@@ -8,6 +8,8 @@ import { AlertController } from '@ionic/angular';
   standalone: false,
 })
 export class MedicamentosPage {
+
+  MediReminder: string = 'MediReminder';
   medicamentos: { nombre: string; dosis: string; horario: string }[] = [];
 
   constructor(private alertCtrl: AlertController) {}

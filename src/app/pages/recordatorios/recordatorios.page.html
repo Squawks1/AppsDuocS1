@@ -1,8 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Recordatorios</ion-title>
+<ion-header>
+  <ion-toolbar>
+    <app-company-name [companyName]="MediReminder"></app-company-name>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
 
