@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   usuarioEmail: string = 'Invitado';
+  MediReminder: string = 'MediReminder';
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
