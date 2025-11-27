@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recordatorios',
@@ -7,7 +8,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./recordatorios.page.scss'],
   standalone: false,
 })
-export class RecordatoriosPage {
+export class RecordatoriosPage implements OnInit{
 
   MediReminder: string = 'MediReminder';
   recordatorios: { medicamento: string; hora: string; nota?: string }[] = [];
@@ -15,7 +16,7 @@ export class RecordatoriosPage {
   nuevaHora = '';
   nuevaNota = '';
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private menu: MenuController) {}
 
   // Agregar un nuevo recordatorio
   async agregarRecordatorio() {
@@ -43,6 +44,11 @@ export class RecordatoriosPage {
   // Eliminar un recordatorio
   eliminarRecordatorio(index: number) {
     this.recordatorios.splice(index, 1);
+  }
+
+  // Cerrar el menú lateral
+  ngOnInit(): void {
+    this.menu.close("mainMenu")
   }
 
   /* Se podría immplementar notificaciones para recordar al 

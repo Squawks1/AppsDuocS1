@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-medicamentos',
@@ -7,12 +8,12 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./medicamentos.page.scss'],
   standalone: false,
 })
-export class MedicamentosPage {
+export class MedicamentosPage implements OnInit{
 
   MediReminder: string = 'MediReminder';
   medicamentos: { nombre: string; dosis: string; horario: string }[] = [];
 
-  constructor(private alertCtrl: AlertController) {}
+  constructor(private alertCtrl: AlertController, private menu: MenuController) {}
 
   //Agregar medicamento
   async agregarMedicamento() {
@@ -79,5 +80,10 @@ export class MedicamentosPage {
       ],
     });
     await alert.present();
+  }
+
+  // Cerrar el menú lateral
+  ngOnInit(): void {
+    this.menu.close("mainMenu")
   }
 }
